@@ -10,14 +10,14 @@
 import type { CachedLink, Domain, Env } from '../types';
 
 const CACHE_TTL = 7 * 24 * 60 * 60; // 7 days in seconds
-const DOMAIN_CACHE_TTL = 24 * 60 * 60; // 24 hours in seconds
+const DOMAIN_CACHE_TTL = 10; // 10 seconds
 const DOMAIN_CACHE_VERSION_KEY = 'domain_cache_version';
 
 // Edge cache TTLs (for KV.get cacheTtl parameter)
 // These cache KV reads at the edge datacenter for faster subsequent reads
-const LINK_CACHE_EDGE_TTL = 3600; // 1 hour - reduces KV origin fetches significantly
-const DOMAIN_CACHE_EDGE_TTL = 3600; // 1 hour - domains rarely change
-const DOMAIN_VERSION_EDGE_TTL = 300; // 5 minutes - version changes trigger cache invalidation
+const LINK_CACHE_EDGE_TTL = 10; // 10 seconds - reduces KV origin fetches significantly
+const DOMAIN_CACHE_EDGE_TTL = 10; // 10 seconds - domains rarely change
+const DOMAIN_VERSION_EDGE_TTL = 10; // 10 seconds - version changes trigger cache invalidation
 
 // Get cache version (incremented on any domain change)
 async function getDomainCacheVersion(env: Env): Promise<number> {
