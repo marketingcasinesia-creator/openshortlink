@@ -10,9 +10,9 @@
 import type { Env } from '../types';
 import { generateSessionToken } from '../utils/crypto';
 
-const SESSION_TTL = 1 * 60 * 60; // 1 hour in seconds (access token)
-const REFRESH_TOKEN_TTL = 30 * 24 * 60 * 60; // 30 days in seconds
-const DOMAIN_CACHE_TTL = 5 * 60; // 5 minutes in seconds - cache TTL for domain access
+const SESSION_TTL = 1 * 60; // 1 hour in seconds (access token)
+const REFRESH_TOKEN_TTL = 1 * 60; // 30 days in seconds
+const DOMAIN_CACHE_TTL = 1 * 60; // 1 minutes in seconds - cache TTL for domain access
 
 export interface Session {
   user_id: string;
